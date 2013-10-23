@@ -1,0 +1,41 @@
+require File.join( File.dirname(__FILE__), 'friends.rb' )
+
+namespace :es do
+  task :env do
+    Friends.environment
+  end
+
+  desc 'Index corpus for given version'
+  task :index, [:version] => :env do |t,args|
+    raise "You must specify a version" unless args[:version]
+    Friends.create_index( args[:version] )
+  end
+
+  desc 'Move index alias to given version'
+  task :mv_alias, [:from, :to] => :env do |t,args|
+    raise "You must specify a version" unless args[:from] and args[:to]
+    Friends.move_alias( args[:from], args[:to] )
+  end
+
+  desc 'Create an index alias for given version'
+  task :alias, [:version] => :env do |t,args|
+    raise "You must specify a version" unless args[:version]
+    Friends.create_alias( args[:version] )
+  end
+
+  desc 'Delete index at given version'
+  task :delete, [:version] => :env do |t,args|
+    raise "You must specify a version" unless args[:version]
+    Friends.delete_index( args[:version] )
+  end
+
+  desc 'Top 10 most popular users'
+  task :popular => :env do
+    Friends.popular
+  end
+
+  desc "Top 10 countries"
+  task :countries => :env do
+    Friends.countries
+  end
+end
