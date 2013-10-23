@@ -18,26 +18,29 @@ class Friends
   end
 
   def self.delete_alias(version)
+    raise "NYI"
   end
 
   def self.create_alias(version)
+    raise "NYI"
   end
 
   def self.delete_index(version)
+    raise "NYI"
   end
 
   def self.create_index(version)
     delete_index(version)
 
-    User.includes(friends:[:user,:friend]).find_in_batches do |group|
-    end
+    raise "NYI"
   end
 
   def self.countries
+    raise "NYI"
   end
 
-
   def self.popular
+    raise "NYI"
   end
 
   private
