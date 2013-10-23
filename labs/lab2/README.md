@@ -1,4 +1,4 @@
-# Lab2 - Indexing primer
+# Lab2 - Bulk indexing
 
 ## Index using the given data file
 
@@ -6,9 +6,9 @@
 
 # Install plugins
 
-$ plugin -install karmi/elasticsearch-paramedic
-$ plugin -install mobz/elasticsearch-head
-$ plugin -install polyfractal/elasticsearch-inquisitor
++ plugin -install karmi/elasticsearch-paramedic
++ plugin -install mobz/elasticsearch-head
++ plugin -install polyfractal/elasticsearch-inquisitor
 
 # Check plugin installation
 
