@@ -1,0 +1,10 @@
+{"index": {"_index":"music", "_type":"electronic", "_id":1}}
+{"track":"Paper Romance", "artist":"Groove Armada", "album":"Black Light", "year":2010}
+{"index": {"_index":"music", "_type":"electronic", "_id":2}}
+{"track":"Empire Ants", "artist":"Little Dragon", "album":"Plastic Beach", "year":2012}
+{"index": {"_index":"music", "_type":"electronic", "_id":3}}
+{"track":"Forever", "artist":"Little Dragon", "album":"Little Dragon", "year":2013}
+{"index": {"_index":"music", "_type":"electronic", "_id":4}}
+{"track":"Little dicky!", "artist":"Moby", "album":"Black Dragon", "year":1999}
+{"index": {"_index":"music", "_type":"reggae", "_id":1}}
+{"track":"Running away", "artist":"Bob Marley", "album":"Mystic", "year":1980}
