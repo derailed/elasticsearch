@@ -4,13 +4,13 @@
 
 + curl -s -XPOST localhost:9200/_bulk --data-binary @data; echo
 
-# Install plugins
+## Install plugins
 
 + plugin -install karmi/elasticsearch-paramedic
 + plugin -install mobz/elasticsearch-head
 + plugin -install polyfractal/elasticsearch-inquisitor
 
-# Check plugin installation
+## Check plugin installation
 
 + Open browser http://localhost:9200/_plugin/head
 + Open browser http://localhost:9200/_plugin/paramedic
