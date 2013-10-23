@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+
+
+gem 'mysql2'
+gem 'activerecord'
+gem 'activesupport'
+gem 'elasticsearch'
+gem 'map'
