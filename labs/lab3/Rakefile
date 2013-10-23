@@ -1,0 +1,78 @@
+namespace :es do
+  desc 'Count all documents in the reggae section'
+  task 'count_reggae' do
+    res = %x[curl localhost:9200/music/reggae/_count]
+    puts res
+  end
+
+  desc 'Count docs in the whole music index'
+  task 'count_music' do
+    res = %x[curl localhost:9200/music/_count]
+    puts res
+  end
+
+  desc 'Find reggae song with id=1'
+  task 'reggae_1' do
+    res = %x[curl localhost:9200/music/reggae/1]
+    puts res
+  end
+
+  desc 'Find all songs that contain Dragon'
+  task 'all_dragon' do
+    res = %x[curl localhost:9200/music/_search?q=Dragon]
+    puts res
+  end
+
+  desc 'Find all songs that contain Running'
+  task 'all_running' do
+    res = %x[curl localhost:9200/music/_search?q=Running]
+    puts res
+  end
+
+  desc 'Find all songs that contain Run'
+  task 'all_run' do
+    res = %x[curl localhost:9200/music/_search?q=Run]
+    puts res
+  end
+
+  desc 'Show current mappings for reggae doc types'
+  task 'mappings' do
+    res = %x[curl localhost:9200/music/reggae/_mapping]
+    puts res
+  end
+
+  desc 'Create new custom mapping to handle the run issue'
+  task 'cust_mappings' do
+    %x[curl -XDELETE localhost:9200/music]
+    cmd = <<-CMD
+curl -XPUT localhost:9200/music -d '
+{
+  "mappings": {
+    "electronic": {
+       "_source":  {"compressed":true},
+       "properties": {
+         "track":  {"type":"string", analyzer:"snowball"},
+         "artist": {"type":"string", index:"not_analyzed"},
+         "album" : {"type":"string", analyzer:"snowball"},
+         "year"  : {"type":"integer", "index":"not_analyzed" }
+      }
+    },
+    "reggae": {
+       "_source":  {"compressed":true},
+       "properties": {
+         "track":  {"type":"string", analyzer:"snowball"},
+         "artist": {"type":"string", index:"not_analyzed"},
+         "album" : {"type":"string", analyzer:"snowball"},
+         "year"  : {"type":"integer", "index":"not_analyzed" }
+      }
+    }
+  }
+}'
+CMD
+    %x[#{cmd}]
+    %x[curl -XPOST localhost:9200/_bulk --data-binary @data.json]
+    %x[curl -XPOST localhost:9200/music/_refresh]
+    res = %x[curl localhost:9200/music/reggae/_search?q=track:Run]
+    puts res
+  end
+end
