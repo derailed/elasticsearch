@@ -1,4 +1,4 @@
-spendex
+ElasticSearch
 =======
 
-ElasticSearch search slides + labs
+ElasticSearch slides + labs
