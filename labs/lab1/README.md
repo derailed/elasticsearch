@@ -2,8 +2,8 @@
 
 ## Install ElasticSearch
 
-$ brew update
-$ brew install elasticsearch
++ brew update
++ brew install elasticsearch
 
 # Configure ES
 
@@ -14,4 +14,4 @@ Edit es.yml
 
 # Run ES
 
-$ elasticsearch -f -Des.config=./es.yml
++ elasticsearch -f -Des.config=./es.yml
