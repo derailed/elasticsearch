@@ -30,6 +30,7 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     i18n (0.6.5)
+    map (6.5.1)
     minitest (4.7.5)
     multi_json (1.8.2)
     multipart-post (1.2.0)
@@ -43,5 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activesupport
   elasticsearch
+  map
   mysql2
